@@ -5,7 +5,7 @@ public class Menu {
 <<<<<<< HEAD
         System.out.println("prueba de conexion no existosa ahora?");
 =======
-        System.out.println("prueba de conexion  no exitosa");
+        System.out.println("prueba de conexion  no exitosa en tres");
 >>>>>>> cec815560a64f56df63be6b36f8f09222f78c993
     }
 }
