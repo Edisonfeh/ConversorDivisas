@@ -8,24 +8,31 @@ import java.net.http.HttpResponse;
 
 public class BusquedaConversor {
 
-     Moneda moneda(String  base_code){
-         URI direccion = URI.create("https://v6.exchangerate-api.com/v6/e277ca8a536139e4b651cf92/latest/"+ base_code);
+    public Double convertirMoneda( String monedaBase, String monedaDestino) {
 
-         HttpClient client = HttpClient.newHttpClient();
-         HttpRequest request = HttpRequest.newBuilder()
-                 .uri(direccion)
-                 .build();
-         HttpResponse<String> response = null;
-         try {
-             response = client
-                     .send(request, HttpResponse.BodyHandlers.ofString());
-         } catch (IOException | InterruptedException e) {
-             throw new RuntimeException(e);
-         }
+        String apikey = System.getenv("EXHANGE_API_KEY");
+        if (apikey == null || apikey.isEmpty() ){
+            throw new RuntimeException("Exhange API Key no esta configurada");
 
-         return new Gson().fromJson(response.body(), Moneda.class);
-     }
+        }
+        // construccion de lka URI usando clave APIKEY y la moneda base
+            URI direccion = URI.create("https://v6.exchangerate-api.com/v6/e277ca8a536139e4b651cf92/latest/" + monedaBase);
+        // creación de htttp client, necesario para hacer la solicitud
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(direccion)
+                    .build();
+            HttpResponse<String> response = null;
+            try {
+                response = client
+                        .send(request, HttpResponse.BodyHandlers.ofString());
+            } catch (IOException | InterruptedException e) {
+                throw new RuntimeException(e);
+            }
 
+            return new Gson().fromJson(response.body(), Moneda.class);
+        }
 
+    }
 
 }
