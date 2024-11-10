@@ -1,8 +1,9 @@
+import java.util.Scanner;
+
 public class Principal {
     public static void main(String[] args) {
-        BusquedaConversor consulta = new BusquedaConversor();
-        Moneda moneda = consulta.moneda("USD");
-        System.out.println(moneda);
+        Scanner lectura = new Scanner(System.in);
+
 
 
 
