@@ -1,38 +1,32 @@
-import javax.swing.*;
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Scanner;
 
 public class Menu {
 
-    private List<BusquedaConversor> busquedaConversion = new ArrayList<>();
-      // Creacion del metodo que realiza la conversion de moneda y devuelve el resultado como una cadena de texto
+    Scanner scanner = new Scanner(System.in);
+    BusquedaConversor buscarMoneda = new BusquedaConversor();
 
-    public String resultadoConversion(String monedaBase, String monedaDestino, double valor){
-        //1. Crea una instancia de la clase de la clase BusquedaConversor
-        BusquedaConversor busquedaConversor = new BusquedaConversor();
+    public void mostrarMenu(){
 
-        // 2.llamada del metodo convertitMoneda () para obtener la tasa de conversion entre la moneda base y la moneda destino
-        double tasaConversion = busquedaConversor.convertirMoneda(monedaBase, monedaDestino);
+        System.out.println("Introduce la moneda de origen");
+    String moneda_base = scanner.nextLine(). trim().toUpperCase();
 
-        //3. calcula el valor convertido multiplicando la tasa de conversion por el valor ingresado
-        double resultado = valor * tasaConversion;
+        System.out.println("Introduce la moneda de destino");
+    String moneda_destino = scanner.nextLine().trim().toUpperCase();
 
-        //4. Formatea el resultado en una cadena con un mensaje descriptivo
-        //Muestra las monedas involucradas y el resultado de la conversion, con dos decimales
-        String respuesta = String.format("%.2f",monedaBase,monedaDestino, resultado);
+        System.out.println("Introduce el monto a convertir: ");
+    double valor = scanner.nextDouble();
+        scanner.nextLine();
 
-        //5. Registra la conversion realizada para mantener un historial
-        //crea un nuevo objeto de Monedas con los detalles de la conversion
-        Monedas registro = new Monedas(monedaBase, monedaDestino, valor);
+    double valorConversion = buscarMoneda.convertirMoneda(moneda_base,moneda_destino);
+    double resultadoConversion = valor * valorConversion;
 
-        //6. Agrega el  uevo registro a la lista de registrosConversion
+        System.out.println(resultadoConversion);
 
-        Monedas.add(registro);
 
-        //Devuelve la respuesta formateada con el resultado de la conversion
-        return respuesta;
 
-    }
+
+
+}
 
 }

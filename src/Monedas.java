@@ -1,14 +1,8 @@
+
 import java.util.Map;
 
-public record Monedas(String baseCode) {
+public record Monedas(String base_code,
+                       Map<String, Double> conversion_rates) {
 
-    public Monedas(String monedaBase, String monedaDestino, double valor) {
-    }
 
-    public static void add(Monedas registro) {
-    }
-
-    public Map<String, Double> getConversion_rates() {
-        return Map.of();
-    }
 }
