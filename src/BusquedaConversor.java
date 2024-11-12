@@ -15,6 +15,7 @@ public class BusquedaConversor {
             throw new RuntimeException("La clave API Key no esta configurada");
 
         }
+
         //1. construccion de la URI usando clave APIKEY y la moneda base
         URI direccion = URI.create("https://v6.exchangerate-api.com/v6/"+ apikey +"/latest/" + monedaBase);
 
@@ -54,12 +55,12 @@ public class BusquedaConversor {
                     // Si existe una tasa para la moneda destino, la devulve como resultado
                     return tasaConversion;
                 } else {
-                    //Si la rasa no se encuentra, lanza un error indicando que no existe conversion
+                    //Si la tasa no se encuentra, lanza un error indicando que no existe conversion
                     throw new RuntimeException("Tasa de conversion no encontrada para la moneda destino");
                 }
             } catch (Exception e) {
                 //9. Si ocurre algun error (como problemas de red, error en la API, etc), lanza una excepcion
-                throw new RuntimeException("Error en la conversion de la moneda destino");
+                throw new RuntimeException("Error en la conversion de la moneda destino ");
             }
 
         }
