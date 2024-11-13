@@ -9,13 +9,9 @@ public class Menu {
     public void mostrarMenu() {
         System.out.println("BIENVENIDO A SU CONVERSOR DE MONEDA");
 
+       System.out.println("*********************************************" + "\n");
 
-
-
-
-        System.out.println("*********************************************" + "\n");
-
-        System.out.println("siglas de su moneda" + "\n");
+        System.out.println("codigos de paises según su  moneda" + "\n");
         System.out.println("""
                 ARS - Peso argentino
                 
@@ -32,14 +28,15 @@ public class Menu {
 
 
 
-                System.out.println("Introduce la moneda de origen ejemplo (USD)");
+                System.out.println("Introduce el codigo de la moneda de origen: ");
+        System.out.println("Ejemplo (USD)");
 
                 String moneda_base = scanner.nextLine().trim().toUpperCase();
 
-                System.out.println("Introduce la moneda de destino");
+                System.out.println("Introduce el codigo de la moneda de destino");
                 String moneda_destino = scanner.nextLine().trim().toUpperCase();
 
-                System.out.println("Introduce el monto a convertir: ");
+                System.out.println("Introduce el monto o el valor a convertir: ");
                 double valor = scanner.nextDouble();
                 scanner.nextLine();
 
